@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientModule } from '@angular/common/http';
 import { OddsCalculatorComponent } from './odds-calculator.component';
 
 describe('OddsCalculatorComponent', () => {
@@ -8,6 +8,9 @@ describe('OddsCalculatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      imports: [
+            HttpClientModule,
+          ],
       declarations: [ OddsCalculatorComponent ]
     })
     .compileComponents();

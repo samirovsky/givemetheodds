@@ -17,15 +17,21 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      node-version: 16.x
     defaults:
-          run:
-            working-directory: 'frontend'
+      run:
+        working-directory: 'frontend'
     steps:
     - uses: actions/checkout@v3
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Update Unix enviornment
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y libgbm-dev
+    - name: Use Node.js ${{ env.node-version }}
       uses: actions/setup-node@v3
       with:
-        node-version: 16.x
+        node-version: ${{ env.node-version }}
         cache: 'npm'
         cache-dependency-path: '**/package-lock.json'
     - run: npm ci

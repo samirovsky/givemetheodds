@@ -1,0 +1,17 @@
+<div class="content">
+  <mat-card class="calculator-card">
+    <mat-card-header>
+      <mat-card-title>🚀C3P-O Odds Calculator to reach Endor 🚀</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="file-upload-container">
+        <input type="file" id="fileInput" (change)="onFileSelected($event)" accept=".json">
+        <label for="fileInput">{{ selectedFileName || 'Choose file' }}</label>
+      </div>
+      <button mat-raised-button color="primary" class="calculate-button" (click)="calculateOdds()" [disabled]="!selectedFile">💫Give Me The Odds 💫</button>
+    </mat-card-content>
+    <mat-card-footer *ngIf="odds !== null">
+      <p>The odds of success are: <strong>{{ odds }} %</strong> 🌌</p>
+    </mat-card-footer>
+  </mat-card>
+</div>

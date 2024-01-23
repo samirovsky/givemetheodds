@@ -18,7 +18,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     env:
-      node-version: 16.x
+      NODE_VERSION: 16.x
     defaults:
       run:
         working-directory: 'frontend'
@@ -28,10 +28,10 @@ jobs:
       run: |
         sudo apt-get update
         sudo apt-get install -y libgbm-dev
-    - name: Use Node.js ${{ env.node-version }}
+    - name: Use Node.js $NODE_VERSION
       uses: actions/setup-node@v3
       with:
-        node-version: ${{ env.node-version }}
+        node-version: $NODE_VERSION
         cache: 'npm'
         cache-dependency-path: '**/package-lock.json'
     - run: npm ci

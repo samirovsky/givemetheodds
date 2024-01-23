@@ -16,7 +16,6 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     strategy:
@@ -28,6 +27,7 @@ jobs:
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
+        working_directory: frontend
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci

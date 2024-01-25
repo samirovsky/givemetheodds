@@ -1,6 +1,7 @@
 package com.giskard.odds.infrastructure.configuration;
 
 import com.giskard.odds.application.data.MillenniumFalconConfig;
+import java.io.IOException;
 import javax.sql.DataSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,10 +19,9 @@ public class SqlLiteDatabaseConfig {
   }
 
   @Bean
-  public DataSource dataSource() {
+  public DataSource dataSource() throws IOException {
     final DriverManagerDataSource dataSource = new DriverManagerDataSource();
-    dataSource.setUrl("jdbc:sqlite:/Users/samirtabib/Projects/databases/universe.db");
-    // dataSource.setUrl("jdbc:sqlite:%s".formatted(millenniumFalconConfig.routesDb()));
+    dataSource.setUrl("jdbc:sqlite:%s".formatted(millenniumFalconConfig.routesDb()));
     return dataSource;
   }
 }

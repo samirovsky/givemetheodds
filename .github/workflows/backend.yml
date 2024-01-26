@@ -5,10 +5,18 @@ on:
     branches: [ "main" ]
     paths:
     - 'backend/**'
+    - 'cli/**'
+    - '.github/workflows/backend.yml'
+    - '**.gradle'
+    - '!**.md'
   pull_request:
     branches: [ "main" ]
     paths:
     - 'backend/**'
+    - 'cli/**'
+    - '.github/workflows/backend.yml'
+    - '**.gradle'
+    - '!**.md'
 permissions:
   contents: read
 

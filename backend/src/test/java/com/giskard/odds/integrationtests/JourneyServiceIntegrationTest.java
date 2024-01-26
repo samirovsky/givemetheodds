@@ -1,6 +1,5 @@
 package com.giskard.odds.integrationtests;
 
-import static com.giskard.odds.tools.MultipartFileTools.getExtMultipartFile;
 import static com.giskard.odds.tools.MultipartFileTools.getMultipartFile;
 import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
 
@@ -54,9 +53,8 @@ public class JourneyServiceIntegrationTest {
 
     // Given
     double expectedOddsValue = Double.parseDouble(expectedOdds);
-    var empireFile =
-        getMultipartFile("empires", "empire%s.json".formatted(countdown), "empireData");
-    var configFile = getMultipartFile(".", "millennium-falcon.json", "configData");
+    var empireFile = getMultipartFile("empires/empire%s.json".formatted(countdown), "empireData");
+    var configFile = getMultipartFile("millennium-falcon.json", "configData");
 
     // When
     double odds =
@@ -73,16 +71,8 @@ public class JourneyServiceIntegrationTest {
 
     // Given
     double expectedOddsValue = Double.parseDouble(expectedOdds);
-    int countdownValue = Integer.parseInt(countdown);
-    var empireFile =
-        getExtMultipartFile(
-            "/Users/samirtabib/Projects/GiveMeTheOdds/cli/examples/example%s/empire.json"
-                .formatted(countdownValue - 6),
-            "empireData");
-    var configFile =
-        getExtMultipartFile(
-            "/Users/samirtabib/Projects/GiveMeTheOdds/cli/examples/millennium-falcon.json",
-            "configData");
+    var empireFile = getMultipartFile("empires/empire%s.json".formatted(countdown), "empireData");
+    var configFile = getMultipartFile("millennium-falcon.json", "configData");
 
     // When
     double odds =

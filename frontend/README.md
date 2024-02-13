@@ -1,4 +1,4 @@
-# Give me the odds forntend
+# Give me the odds frontend
 
 ![c3po-odds](src/assets/c-3po.png)
 
